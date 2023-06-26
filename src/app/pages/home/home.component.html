@@ -1,12 +1,19 @@
 <div class="container-home">
+    <div class="charging-bars-container">
+        <app-loading></app-loading>
+    </div>
+
+    <app-card
+        [country]="cityWeather.city.country"
+        [title]="cityWeather.city.name"
+        [description]="cityWeather.weather.description"
+        [temperature]="cityWeather.weather.temp"
+        [icon]="cityWeather.weather.icon"
+    ></app-card>
+
     <div>
-        <input type="text" 
-            [formControl]="searchControl"
-            (keyup)="keyUpEnter($event)"
-        >
-        <button
-            [disabled]="!searchControl.valid"
-            (click)="search()"
-        >Pesquisar</button>
+        <input type="text" [formControl]="searchControl" (keyup)="keyUpEnter($event)">
+        
+        <button [disabled]="!searchControl.valid" (click)="search()">Pesquisar</button>
     </div>
 </div>

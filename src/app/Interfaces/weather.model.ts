@@ -1,20 +1,17 @@
-export interface City {
-    id?: number;
-    name?: string;
-    country?: string;
-    coord?: Coord;
-    timeZone?: string;
-}
-
 export interface CityWeather {
-    city: City;
-    weather: Weather;
+    city: City,
+    weather: Weather
 }
 
-export interface CityDailyWeather {
-    city: City;
-    current: Weather;
-    daily: DailyWeather[];
+export interface City {
+    id: number;
+    name: string;
+    country: string;
+    coord: {
+        lon: number;
+        lat: number;
+    };
+    // timeZone?: string;
 }
 
 export interface Weather {
@@ -22,26 +19,15 @@ export interface Weather {
     description: string;
     icon: string;
     temp: number;
-    minTemp?: number;
-    maxTemp?: number;
+    // minTemp?: number;
+    // maxTemp?: number;
     feelsLike: number;
     humidity: number;
-    wind: Wind;
+    wind: {
+        speed: number;
+        deg: number;
+    };
     sunrise: number;
     sunset: number;
-}
-
-export interface DailyWeather {
-    date: number;
-    weather: Weather;
-}
-
-export interface Coord {
-    lon: number;
-    lat: number;
-}
-
-export interface Wind {
-    speed: number;
-    deg: number;
-}  
+  }
+  

@@ -7,8 +7,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http'
 
 import { HomeModule } from './pages/home/home.module';
-import { BookmarksModule } from './pages/bookmarks/bookmarks.module';
 
+import { BookmarksModule } from './pages/bookmarks/bookmarks.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { BookmarksModule } from './pages/bookmarks/bookmarks.module';
     AppRoutingModule,
     HomeModule,
     BookmarksModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

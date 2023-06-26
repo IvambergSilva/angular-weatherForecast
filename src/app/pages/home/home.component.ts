@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { Observable, catchError, tap, of } from 'rxjs';
+import { Observable, catchError, tap, of, map } from 'rxjs';
+import { newCityWeather } from 'src/app/Common/factories';
+import { City, CityWeather } from 'src/app/Interfaces/weather.model';
 import { WeatherService } from 'src/app/services/weather.service';
 
 @Component({
@@ -12,7 +14,7 @@ export class HomeComponent implements OnInit {
 
   searchControl: FormControl = new FormControl;
 
-  cityWeather: any
+  cityWeather: CityWeather = newCityWeather()
 
   constructor(
     private weaterService: WeatherService
@@ -23,21 +25,16 @@ export class HomeComponent implements OnInit {
   }
 
   keyUpEnter(key: KeyboardEvent) {
-    if(key.code == 'Enter') this.search()
+    if (key.code == 'Enter') this.search()
   }
 
   search() {
-    const query = this.searchControl.value
-    
-    this.weaterService.getWeather(query).pipe(
-      tap((response) => {
-        this.cityWeather = response
-        console.log(response);
-      }),
-      catchError((err: any) => {
-        console.error(err.error);
-        return of()
-      }
-    )).subscribe()
+    const query =  this.searchControl.value
+
+    this.weaterService.getCityWeather(query).subscribe((map) => {
+      console.log(map);
+      this.cityWeather = map
+      console.log(this.cityWeather.weather);
+    })
   }
 }
