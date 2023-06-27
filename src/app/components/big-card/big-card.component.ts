@@ -1,12 +1,12 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { WeatherService } from 'src/app/services/weather.service';
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  selector: 'app-big-card',
+  templateUrl: './big-card.component.html',
+  styleUrls: ['./big-card.component.scss']
 })
-export class CardComponent implements OnInit, OnChanges {
+export class BigCardComponent implements OnInit, OnChanges {
   width: string = '128'
   height: string = (Number(this.width) * (3 / 4)).toString()
 

@@ -12,7 +12,7 @@ import { BookmarksModule } from './pages/bookmarks/bookmarks.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

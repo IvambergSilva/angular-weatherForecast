@@ -1,0 +1,14 @@
+.small-card-container {
+    font-size: 2rem;
+    border: 1px solid #fff;
+    width: 200px;
+    margin: 3px 10px;
+
+    .left-small-card {
+        p {
+            span {
+                text-transform: uppercase;
+            }
+        }
+    }
+}

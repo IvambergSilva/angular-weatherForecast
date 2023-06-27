@@ -2,18 +2,34 @@
     <div class="charging-bars-container">
         <app-loading></app-loading>
     </div>
-
-    <app-card
+    
+    <app-big-card 
         [country]="cityWeather.city.country"
         [title]="cityWeather.city.name"
         [description]="cityWeather.weather.description"
         [temperature]="cityWeather.weather.temp"
         [icon]="cityWeather.weather.icon"
-    ></app-card>
+    >
+    </app-big-card>
 
+    <div 
+        class="small-cards"
+        *ngFor="let i of cityWeatherDays.list"    
+    >
+        <app-small-card
+            [title]="cityWeatherDays.city.name"
+            [country]="cityWeatherDays.city.country"
+
+            [day]="i.dt_txt"
+            [temperature]="i.temp"
+            [humidity]="i.humidity"
+            [wind]="i.wind_speed"
+        ></app-small-card>
+    </div>
+    
     <div>
         <input type="text" [formControl]="searchControl" (keyup)="keyUpEnter($event)">
-        
-        <button [disabled]="!searchControl.valid" (click)="search()">Pesquisar</button>
+
+        <button [disabled]="!searchControl.valid" (click)="searchToday()">Pesquisar</button>
     </div>
 </div>

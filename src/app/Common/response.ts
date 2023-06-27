@@ -1,4 +1,4 @@
-import { CityWeather } from '../Interfaces/weather.model'
+import { CityWeather, CityWeatherDays } from '../Interfaces/weather.model'
 
 export function responseToCityWeather(response: any): CityWeather {
   return {
@@ -6,7 +6,6 @@ export function responseToCityWeather(response: any): CityWeather {
       id: response.id,
       name: response.name,
       country: response.sys.country,
-      coord: response.coord,
       // timeZone: response.timezone,
     },
     weather: {
@@ -25,5 +24,28 @@ export function responseToCityWeather(response: any): CityWeather {
       sunrise: response.sys.sunrise,
       sunset: response.sys.sunset,
     },
+  }
+}
+
+export function responseToCityWeatherDays(response: any): CityWeatherDays {
+  return {
+    city: {
+      id: response.city.id,
+      name: response.city.name,
+      country: response.city.country,
+    },
+    list: response.list.filter((item: any) => {
+      return item.dt_txt[12] == '9' || item.dt_txt[12] == '5' || item.dt_txt[12] == '1'
+    }).map((item: any) => {
+      return {
+          dt_txt: item.dt_txt,
+          temp: item.main.temp,
+          humidity: item.main.humidity,
+          description: item.weather[0].description,
+          icon: item.weather[0].icon,
+          wind_speed: item.wind.speed,
+          sys_pod: item.sys.pod
+      }
+    })
   }
 }

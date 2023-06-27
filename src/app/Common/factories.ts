@@ -1,4 +1,4 @@
-import { CityWeather } from "../Interfaces/weather.model";
+import { CityWeather, CityWeatherDays } from "../Interfaces/weather.model";
 
 export function newCityWeather(): CityWeather {
     return {
@@ -6,10 +6,6 @@ export function newCityWeather(): CityWeather {
             id: 0,
             name: '',
             country: '',
-            coord: {
-                lon: 0,
-                lat: 0
-            },
             // timeZone: ''
         },
         weather: {
@@ -28,5 +24,27 @@ export function newCityWeather(): CityWeather {
             sunrise: 0,
             sunset: 0,
         },
+    }
+}
+
+export function newCityWeatherDays(): CityWeatherDays {
+    return {
+        city: {
+            id: 0,
+            name: '',
+            country: '',
+        },
+        list: [{
+            dt_txt: '',
+            temp: 0,
+            humidity: 0,
+            weather: {
+                description: '',
+                icon: ''
+            },
+            wind_speed: 0,
+            wind_deg: 0,
+            sys_pod: '',
+        }]
     }
 }

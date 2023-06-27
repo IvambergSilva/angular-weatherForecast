@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { Observable, catchError, tap, of, map } from 'rxjs';
-import { newCityWeather } from 'src/app/Common/factories';
-import { City, CityWeather } from 'src/app/Interfaces/weather.model';
+import { newCityWeather, newCityWeatherDays } from 'src/app/Common/factories';
+import { CityWeather, CityWeatherDays } from 'src/app/Interfaces/weather.model';
 import { WeatherService } from 'src/app/services/weather.service';
 
 @Component({
@@ -15,6 +14,7 @@ export class HomeComponent implements OnInit {
   searchControl: FormControl = new FormControl;
 
   cityWeather: CityWeather = newCityWeather()
+  cityWeatherDays: CityWeatherDays = newCityWeatherDays()
 
   constructor(
     private weaterService: WeatherService
@@ -22,19 +22,32 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.searchControl.setValidators(Validators.required)
+    // this.searchToday()
+    this.search5Days()
   }
 
   keyUpEnter(key: KeyboardEvent) {
-    if (key.code == 'Enter') this.search()
+    if (key.code == 'Enter') this.searchToday()
   }
 
-  search() {
-    const query =  this.searchControl.value
+  searchToday() {
+    const query = 'são paulo'
+    // const query = this.searchControl.value
+    const type = 'weather'
 
-    this.weaterService.getCityWeather(query).subscribe((map) => {
+    this.weaterService.getDatasCityWeather(query, type).subscribe((map) => {
       console.log(map);
       this.cityWeather = map
-      console.log(this.cityWeather.weather);
+    })
+  }
+  search5Days() {
+    const query = 'juripiranga'
+    const type = 'forecast'
+
+    this.weaterService.getDatasCityWeather(query, type).subscribe((map) => {
+      console.log(map);
+      this.cityWeatherDays = map
+      console.log(this.cityWeatherDays.list.length);
     })
   }
 }

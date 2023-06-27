@@ -3,16 +3,19 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { HomeComponent } from './home.component';
+import { BigCardComponent } from 'src/app/components/big-card/big-card.component';
+
 import { LoadingComponent } from 'src/app/components/loading/loading.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoadingInterceptor } from 'src/app/interceptors/loading.interceptor';
-import { CardComponent } from 'src/app/components/card/card.component';
+import { SmallCardComponent } from 'src/app/components/small-card/small-card.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     LoadingComponent,
-    CardComponent
+    BigCardComponent,
+    SmallCardComponent
   ],
   imports: [
     CommonModule,
