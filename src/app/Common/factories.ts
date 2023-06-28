@@ -45,6 +45,8 @@ export function newCityWeatherDays(): CityWeatherDays {
             wind_speed: 0,
             wind_deg: 0,
             sys_pod: '',
+            icon: '',
+            description: ''
         }]
     }
 }

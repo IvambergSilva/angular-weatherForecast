@@ -1,4 +1,7 @@
 <div class="small-card-container">
+    <div class="header">
+        <p>{{dayOfWeek}}</p>
+    </div>
     <div class="left-small-card">
         <h2>{{temp}}</h2>
         <div>
@@ -8,11 +11,13 @@
         <p>{{title}} - <span>{{country}}</span></p>
     </div>
     <div class="right-small-card">
-        <p>{{dayOfWeek}}</p>
-        <p>{{date}}</p>
-        <p>{{hours}}</p>
         <div class="imgIcon">
-            <img src="" alt="">
+            <img src="{{srcIcon}}" alt="">
         </div>
+        <p>{{description}}</p>
+    </div>
+    <div class="footer">
+        <p>{{hours}}</p>
+        <p>{{date}}</p>
     </div>
 </div>

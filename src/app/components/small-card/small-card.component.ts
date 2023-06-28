@@ -16,7 +16,7 @@ export class SmallCardComponent implements OnChanges {
   // countryVisible: boolean = false
 
   // src: string = ''
-  // srcIcon: string = ''
+  srcIcon: string = ''
 
   @Input()
   title: string = ''
@@ -68,7 +68,7 @@ export class SmallCardComponent implements OnChanges {
     // this.countryVisible = true
 
     this.temp = `${this.temperature.toFixed()} ${this.unit}`
-    // this.srcIcon = `https://openweathermap.org/img/wn/${this.icon}@4x.png`
+    this.srcIcon = `https://openweathermap.org/img/wn/${this.icon}@4x.png`
 
   }
 

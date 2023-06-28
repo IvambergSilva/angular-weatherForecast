@@ -14,9 +14,10 @@
 
     <div 
         class="small-cards"
-        *ngFor="let i of cityWeatherDays.list"    
     >
         <app-small-card
+            *ngFor="let i of cityWeatherDays.list"
+
             [title]="cityWeatherDays.city.name"
             [country]="cityWeatherDays.city.country"
 
@@ -24,6 +25,8 @@
             [temperature]="i.temp"
             [humidity]="i.humidity"
             [wind]="i.wind_speed"
+            [icon]="i.icon"
+            [description]="i.description"
         ></app-small-card>
     </div>
     

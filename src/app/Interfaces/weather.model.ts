@@ -48,5 +48,7 @@ export interface ListCityWeatherDays {
     weather: WeatherDays;
     wind_speed: number;
     wind_deg: number;
-    sys_pod: string
+    sys_pod: string;
+    icon: string;
+    description: string;
 }
